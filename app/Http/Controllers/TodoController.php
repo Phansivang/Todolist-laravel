@@ -11,7 +11,7 @@ class TodoController extends Controller
 {
     public function index(){
         $todo = Todo::all();
-        return view('index',['todo'=>$todo]);
+        return view('index',['todos'=>$todo]);
     }
     public function store(){
         $attributes = request()->validate([
@@ -21,4 +21,12 @@ class TodoController extends Controller
         Todo::create($attributes);
         return redirect('/');
     }
+    public function destroy(Todo $todo){
+        $todo->delete();
+        return redirect('/');
+    }
+    public function edit(Todo $edit){
+        return view('edit', compact('edit'));
+    }
+
 }

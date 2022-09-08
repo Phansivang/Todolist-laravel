@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[TodoController::class,'index']);
 Route::post('/',[TodoController::class,'store']);
-
+Route::delete('/delete/{todo}',[TodoController::class,'destroy']);
+Route::get('/users/edit', [TodoController::class, 'edit']);

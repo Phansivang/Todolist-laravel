@@ -1,17 +1,18 @@
 @extends('main')
 @section('content')
     <div class=" rounded-lg">
-    <div class="mt-6">
-        <form class="flex flex-col space-y-4 " method="post" action="/">
-            @csrf
-            <input type="text" placeholder="The Todo Title " name="title" class=" py-3 px-4 bg-gray-100 rounded-xl" >
-            <textarea name="description" placeholder="The Description" class="py-3 px-4 bg-gray-100 rounded-xl"></textarea>
-            <button  class="w-20 py-2 px-3 bg-green-500 text-white rounded-xl">Add</button>
-        </form>
-
-    </div>
-    <br>
-    <hr>
+        <div class="mt-6">
+            <form class="flex flex-col space-y-4 " method="post" action="/">
+                @csrf
+                @method('PUT')
+                <input type="text" placeholder="The Todo Title " name="title" class=" py-3 px-4 bg-gray-100 rounded-xl" >
+                <textarea name="description" placeholder="The Description" class="py-3 px-4 bg-gray-100 rounded-xl"></textarea>
+                <button  class="w-20 py-2 px-3 bg-green-500 text-white rounded-xl">Edit</button>
+            </form>
+            
+        </div>
+        <br>
+        <hr>
         @foreach($todos as $todo)
             <div class="mt-2">
                 <div class="py-4 flex item-center border-b border-gray-300 px-3">
