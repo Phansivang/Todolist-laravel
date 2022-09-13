@@ -14,7 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[TodoController::class,'index']);
+Route::get('/','App\Http\Controllers\TodoController@index');
+Route::get('test/',function (){
+    $data = ['P1'=>'Iphone5','P2'=>'Iphone6s'];
+    return view('main')->with('data',$data);
+});
+Route::get('user',function (){
+    $json = response()->json([
+        'username' => 'Phansivang',
+        'password' => 'blablalblb',
+    ]);
+    return $json;
+});
 Route::post('/',[TodoController::class,'store']);
 Route::delete('/delete/{todo}',[TodoController::class,'destroy']);
-Route::get('/users/edit', [TodoController::class, 'edit']);
+

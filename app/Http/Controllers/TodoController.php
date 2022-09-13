@@ -10,8 +10,11 @@ use function GuzzleHttp\Promise\all;
 class TodoController extends Controller
 {
     public function index(){
-        $todo = Todo::all();
-        return view('index',['todos'=>$todo]);
+        $student = [
+            'name' => 'Phansivang'
+        ];
+        $todo_list = Todo::all();
+        return view('index',compact('todo_list'));
     }
     public function store(){
         $attributes = request()->validate([

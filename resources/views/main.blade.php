@@ -11,7 +11,6 @@
     <!-- add TailWind CSS -->
 </head>
 <body class="bg-gray-200">
-
 <div class="container">
     @yield('content')
 </div>

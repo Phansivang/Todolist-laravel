@@ -4,7 +4,7 @@
     <div class="mt-6">
         <form class="flex flex-col space-y-4 " method="post" action="/">
             @csrf
-            <input type="text" placeholder="The Todo Title " name="title" class=" py-3 px-4 bg-gray-100 rounded-xl" >
+            <input required="" type="text" placeholder="The Todo Title " name="title" class=" py-3 px-4 bg-gray-100 rounded-xl" >
             <textarea name="description" placeholder="The Description" class="py-3 px-4 bg-gray-100 rounded-xl"></textarea>
             <button  class="w-20 py-2 px-3 bg-green-500 text-white rounded-xl">Add</button>
         </form>
@@ -12,12 +12,14 @@
     </div>
     <br>
     <hr>
-        @foreach($todos as $todo)
+        @foreach($todo_list as $todos)
             <div class="mt-2">
                 <div class="py-4 flex item-center border-b border-gray-300 px-3">
                     <div class="flex-1 pr-8 border-b-0">
-                        <h3 class="text-lg font-semibold">{{$todo->title}}</h3>
-                        <p class="text-gray-500">{{$todo->description}}</p>
+                        <h3 class="text-lg font-semibold">{{$todos->title}}</h3>
+                        <p class="text-gray-500">{{$todos->description}}</p>
+
+
 
                     </div>
                     <div class="flex space-x-3">
@@ -30,7 +32,7 @@
 
                             </button>
                         </form>
-                        <form  method="post" action="/delete/{{$todo->id}}">
+                        <form  method="post" action="/delete/{{$todos->id}}">
                             @csrf
                             @method('DELETE')
                             <button  class="py-1 px-3 bg-red-500 text-white rounded-2  hover:bg-black">
